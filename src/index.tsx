@@ -35,8 +35,8 @@ class Counter extends React.Component<Count, Count> {
     render() {
         return (
             <div>
-                {this.renderButton('Increment', this.incrementCount.bind(this))}
-                {this.renderButton('Decrement', this.decrementCount)}
+                {this.renderButton('+', this.incrementCount.bind(this))}
+                {this.renderButton('-', this.decrementCount)}
                 {this.renderCount()}
            </div>
         );
