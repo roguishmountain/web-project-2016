@@ -5,14 +5,14 @@
   "path": "typings",
   "bundle": "src/tsd.d.ts",
   "installed": {
-    "react/react.d.ts": {
-      "commit": "93bae1bb4c887c1375a4c1f0c3bb849ff06b8ac6"
-    },
-    "lodash/lodash.d.ts": {
-      "commit": "93bae1bb4c887c1375a4c1f0c3bb849ff06b8ac6"
-    },
     "react/react-dom.d.ts": {
-      "commit": "93bae1bb4c887c1375a4c1f0c3bb849ff06b8ac6"
+      "commit": "fab683ca77d0286b9d51aba6375deaceb41b22f5"
+    },
+    "react/react.d.ts": {
+      "commit": "fab683ca77d0286b9d51aba6375deaceb41b22f5"
+    },
+    "d3/d3.d.ts": {
+      "commit": "fab683ca77d0286b9d51aba6375deaceb41b22f5"
     }
   }
 }
