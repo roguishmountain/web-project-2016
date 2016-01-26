@@ -23,7 +23,7 @@ module.exports = {
         bundle: [
             'eventsource-polyfill', // necessary for hot reloading with IE
             'webpack-hot-middleware/client',
-            './src/index.tsx'
+            './src/main.tsx'
         ]
     },
 

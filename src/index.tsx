@@ -1,10 +1,49 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import * as d3 from 'd3';
+import * as _ from 'lodash';
+
+import { Axis } from './axis';
+import { ScatterPlot } from './scatterplot';
+
 
 class World extends React.Component<any, any> {
+    constructor(props) {
+        super();
+        this.state = {
+            color: "green",
+            count: 0,
+            radius: 5,
+            data: [
+                {x: 1, y: 2},
+                {x: 4, y: 7},
+                {x: 3, y: 5},
+            ]
+        };
+    }
+    onEnter() {
+        for (let i = 0; i < 3; i++) {
+            setTimeout(() => this.setState({color: "red", radius: this.state.radius + 10 }), 500 * i);
+        }
+    }
+    onLeave() {
+        for (let i = 0; i < 3; i++) {
+            setTimeout(() => this.setState({color: "blue", radius: this.state.radius - 10 }), 500 * i);
+        }
+    }
     render() {
-        let content = "Hello World from a Class!";
-        return <h1>{content}</h1>;
+        return (
+            <div>
+                <p>{this.state.data}</p>
+                <svg width="1024" height="768">
+                    <circle
+                        onMouseEnter={this.onEnter.bind(this)}
+                        onMouseLeave={this.onLeave.bind(this)}
+                        cx="240" cy="240" r={this.state.radius} fill={this.state.color} />
+                </svg>
+
+            </div>
+        );
     }
 }
 
@@ -36,24 +75,9 @@ class Counter extends React.Component<Count, Count> {
         return (
             <div>
                 {this.renderButton('+', this.incrementCount.bind(this))}
-                {this.renderButton('-', this.decrementCount)}
+                {this.renderButton('-', this.decrementCount.bind(this))}
                 {this.renderCount()}
            </div>
         );
     }
 }
-
-class Main extends React.Component<any, any> {
-    render() {
-        return (
-            <div>
-                <h1>Hello World!</h1>
-                <World />
-                <Counter count={100} />
-            </div>
-        );
-    }
-}
-
-
-ReactDOM.render(<Main />, document.getElementById('content'));
