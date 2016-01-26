@@ -1,15 +1,39 @@
 var path = require('path');
 var webpack = require('webpack');
 
+/*
+var http = require('http');
+var express = require('express');
+var app = express();
+app.use(require('morgan')('short'));
+var webpackConfig = require('./webpack.config');
+var compiler = webpack(webpackConfig);
+
+app.use(require("webpack-dev-middleware")(compiler, {
+    noInfo: true, publicPath: webpackConfig.output.publicPath
+}));
+
+app.use(require("webpack-hot-middleware")(compiler));
+*/
+
+
 module.exports = {
-    entry: [
-        'eventsource-polyfill', // necessary for hot reloading with IE
-        'webpack-hot-middleware/client',
-        './src/index.tsx'
-    ],
+    entry: 
+    { 
+        bundle: [
+            'eventsource-polyfill', // necessary for hot reloading with IE
+            'webpack-hot-middleware/client',
+            './src/index.tsx'
+        ], 
+        
+        d3: [
+            './src/d3-ch5.ts'
+        ]
+    },
+    
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: '[name].js'
     },
 
     plugins: [
