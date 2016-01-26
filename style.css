@@ -1,0 +1,13 @@
+div.bar {
+    display: inline-block;
+    width: 50px;
+    height: 75px;
+    margin-right: 3px;
+    background-color: teal;
+}
+
+g.axis path,
+g.axis line {
+    fill: black;
+    stroke: black;
+}
